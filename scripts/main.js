@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkillBars();
 });
 
-// Hero canvas background animation - Neural network + DNA helix
+// Hero canvas background animation - Neural network + DNA helix + datasets
 function initHeroCanvas() {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
@@ -49,17 +49,18 @@ function initHeroCanvas() {
 
     // Neural network particles
     const neurons = [];
-    const neuronCount = 80;
+    const neuronCount = 120;
 
     class Neuron {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.8;
-            this.vy = (Math.random() - 0.5) * 0.8;
-            this.radius = Math.random() * 3 + 2;
-            this.opacity = Math.random() * 0.6 + 0.3;
+            this.vx = (Math.random() - 0.5) * 1.2;
+            this.vy = (Math.random() - 0.5) * 1.2;
+            this.radius = Math.random() * 4 + 1.5;
+            this.opacity = Math.random() * 0.7 + 0.2;
             this.originalOpacity = this.opacity;
+            this.pulseSpeed = Math.random() * 0.02 + 0.005;
         }
 
         update() {
@@ -69,8 +70,8 @@ function initHeroCanvas() {
             if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
             if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-            // Pulse effect
-            this.opacity = this.originalOpacity + Math.sin(time * 0.01 + this.x) * 0.2;
+            // Advanced pulse effect
+            this.opacity = this.originalOpacity + Math.sin(time * this.pulseSpeed + this.x * 0.001) * 0.3;
         }
 
         draw() {
@@ -80,10 +81,10 @@ function initHeroCanvas() {
             ctx.fill();
 
             // Glow effect
-            ctx.strokeStyle = `rgba(23, 162, 184, ${this.opacity * 0.3})`;
-            ctx.lineWidth = 2;
+            ctx.strokeStyle = `rgba(23, 162, 184, ${this.opacity * 0.4})`;
+            ctx.lineWidth = 2.5;
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+            ctx.arc(this.x, this.y, this.radius + 4, 0, Math.PI * 2);
             ctx.stroke();
         }
     }
@@ -93,18 +94,19 @@ function initHeroCanvas() {
         neurons.push(new Neuron());
     }
 
-    // Draw neural connections
+    // Draw neural connections with variable opacity
     const drawNeuralConnections = () => {
+        const connectionDistance = 250;
         for (let i = 0; i < neurons.length; i++) {
             for (let j = i + 1; j < neurons.length; j++) {
                 const dx = neurons[i].x - neurons[j].x;
                 const dy = neurons[i].y - neurons[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 200) {
-                    const opacity = (1 - distance / 200) * 0.15;
+                if (distance < connectionDistance) {
+                    const opacity = (1 - distance / connectionDistance) * 0.25;
                     ctx.strokeStyle = `rgba(23, 162, 184, ${opacity})`;
-                    ctx.lineWidth = 1.5;
+                    ctx.lineWidth = 1 + (1 - distance / connectionDistance) * 1.5;
                     ctx.beginPath();
                     ctx.moveTo(neurons[i].x, neurons[i].y);
                     ctx.lineTo(neurons[j].x, neurons[j].y);
@@ -114,34 +116,38 @@ function initHeroCanvas() {
         }
     };
 
-    // Draw DNA helix
+    // Draw DNA helix - enhanced with more detail
     const drawDNAHelix = () => {
         const helixX = canvas.width * 0.85;
-        const helixStart = -100 + time * 2;
+        const helixStart = -100 + time * 2.5;
         const helixEnd = canvas.height + 200;
-        const radius = 30;
+        const radius = 40;
 
-        ctx.strokeStyle = 'rgba(231, 76, 60, 0.4)';
-        ctx.lineWidth = 2;
+        // Main helix strands
+        for (let y = helixStart; y < helixEnd; y += 4) {
+            const x1 = helixX + Math.sin((y + time * 0.03) * 0.05) * radius;
+            const x2 = helixX - Math.sin((y + time * 0.03) * 0.05) * radius;
 
-        for (let y = helixStart; y < helixEnd; y += 5) {
-            const x1 = helixX + Math.sin((y + time) * 0.05) * radius;
-            const x2 = helixX + Math.cos((y + time) * 0.05) * radius;
-
+            ctx.strokeStyle = `rgba(231, 76, 60, ${0.5 + Math.sin((y + time * 0.03) * 0.05) * 0.3})`;
+            ctx.lineWidth = 2.5;
             ctx.beginPath();
             ctx.moveTo(x1, y);
             ctx.lineTo(helixX, y);
             ctx.stroke();
 
-            ctx.strokeStyle = `rgba(231, 76, 60, ${0.4 + Math.sin((y + time) * 0.05) * 0.2})`;
+            ctx.strokeStyle = `rgba(100, 200, 220, ${0.5 - Math.sin((y + time * 0.03) * 0.05) * 0.3})`;
+            ctx.beginPath();
+            ctx.moveTo(x2, y);
+            ctx.lineTo(helixX, y);
+            ctx.stroke();
         }
 
-        // DNA base pairs
-        for (let y = helixStart; y < helixEnd; y += 20) {
-            const x1 = helixX + Math.sin((y + time) * 0.05) * radius;
-            const x2 = helixX + Math.cos((y + time) * 0.05) * radius;
+        // DNA base pairs connections
+        for (let y = helixStart; y < helixEnd; y += 15) {
+            const x1 = helixX + Math.sin((y + time * 0.03) * 0.05) * radius;
+            const x2 = helixX - Math.sin((y + time * 0.03) * 0.05) * radius;
 
-            ctx.strokeStyle = 'rgba(231, 76, 60, 0.6)';
+            ctx.strokeStyle = `rgba(231, 76, 60, 0.7)`;
             ctx.lineWidth = 2;
             ctx.beginPath();
             ctx.moveTo(x1, y);
@@ -150,41 +156,73 @@ function initHeroCanvas() {
         }
     };
 
-    // Draw data visualization points
+    // Draw multiple dataset streams
     const drawDataPoints = () => {
-        for (let i = 0; i < 15; i++) {
-            const x = (canvas.width * 0.2 + Math.sin(time * 0.003 + i) * 60) + i * 40;
-            const y = (canvas.height * 0.3 + Math.cos(time * 0.003 + i * 1.5) * 80);
-            const size = Math.sin(time * 0.005 + i) * 3 + 5;
+        // Multiple data streams at different heights
+        for (let stream = 0; stream < 3; stream++) {
+            const streamY = canvas.height * (0.2 + stream * 0.25);
+            const pointsPerStream = 20;
 
-            ctx.fillStyle = `rgba(26, 58, 82, ${0.3 + Math.sin(time * 0.004 + i) * 0.2})`;
-            ctx.beginPath();
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fill();
+            for (let i = 0; i < pointsPerStream; i++) {
+                const x = (canvas.width * 0.1 + Math.sin(time * 0.003 + i + stream) * 80) + i * 35;
+                const y = streamY + Math.cos(time * 0.004 + i * 1.2 + stream) * 60;
+                const size = Math.sin(time * 0.005 + i + stream) * 3 + 4;
+                const color = stream === 0 ? [26, 58, 82] : stream === 1 ? [23, 162, 184] : [100, 150, 200];
 
-            // Connect to neighbors
-            if (i < 14) {
-                const nextX = (canvas.width * 0.2 + Math.sin(time * 0.003 + i + 1) * 60) + (i + 1) * 40;
-                const nextY = (canvas.height * 0.3 + Math.cos(time * 0.003 + (i + 1) * 1.5) * 80);
+                ctx.fillStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${0.4 + Math.sin(time * 0.005 + i) * 0.3})`;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
 
-                ctx.strokeStyle = `rgba(26, 58, 82, 0.1)`;
+                // Data point glow
+                ctx.strokeStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, ${0.2})`;
                 ctx.lineWidth = 1;
                 ctx.beginPath();
-                ctx.moveTo(x, y);
-                ctx.lineTo(nextX, nextY);
+                ctx.arc(x, y, size + 2, 0, Math.PI * 2);
                 ctx.stroke();
+
+                // Connect to neighbors
+                if (i < pointsPerStream - 1) {
+                    const nextX = (canvas.width * 0.1 + Math.sin(time * 0.003 + i + 1 + stream) * 80) + (i + 1) * 35;
+                    const nextY = streamY + Math.cos(time * 0.004 + (i + 1) * 1.2 + stream) * 60;
+
+                    ctx.strokeStyle = `rgba(${color[0]}, ${color[1]}, ${color[2]}, 0.15)`;
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(x, y);
+                    ctx.lineTo(nextX, nextY);
+                    ctx.stroke();
+                }
             }
         }
     };
 
+    // Draw floating info particles
+    const drawFloatingText = () => {
+        const labels = ['DATA', 'GENOME', 'BIOTECH', 'NEURAL', 'OMICS'];
+        const fontSize = 12;
+        ctx.font = `${fontSize}px monospace`;
+        ctx.textAlign = 'center';
+
+        labels.forEach((label, idx) => {
+            const x = canvas.width * (0.15 + idx * 0.15);
+            const y = canvas.height * (0.15 + Math.sin(time * 0.002 + idx) * 0.1);
+            const opacity = 0.2 + Math.sin(time * 0.004 + idx) * 0.15;
+
+            ctx.fillStyle = `rgba(23, 162, 184, ${opacity})`;
+            ctx.fillText(label, x, y);
+        });
+    };
+
     const animate = () => {
-        // Dark background with slight fade
-        ctx.fillStyle = 'rgba(15, 30, 46, 0.1)';
+        // Dark background with slight persistence
+        ctx.fillStyle = 'rgba(15, 30, 46, 0.15)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         time++;
 
         drawDataPoints();
+        drawFloatingText();
         drawDNAHelix();
 
         neurons.forEach(neuron => {

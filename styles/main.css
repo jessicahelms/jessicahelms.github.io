@@ -530,31 +530,35 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 30px 0;
+    padding: 40px 0;
     scroll-behavior: smooth;
+    align-items: center;
+    scroll-padding: 20px;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--accent);
+    background: linear-gradient(90deg, var(--accent), var(--secondary), var(--accent));
     z-index: 0;
 }
 
 .timeline-item {
     position: relative;
-    flex: 0 0 300px;
+    flex: 0 0 320px;
     margin-bottom: 0;
     z-index: 1;
+    cursor: pointer;
 }
 
 .timeline-item:nth-child(odd) {
     padding-right: 0;
-    padding-top: 60px;
+    padding-top: 0;
 }
 
 .timeline-item:nth-child(even) {
@@ -564,15 +568,22 @@ body {
 
 .timeline-marker {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background: var(--accent);
     border: 4px solid white;
     border-radius: 50%;
-    top: 25px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 20px;
-    transform: none;
     box-shadow: 0 0 0 3px var(--accent);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 0 0 4px var(--accent), 0 0 20px rgba(23, 162, 184, 0.6);
 }
 
 .timeline-content {
@@ -580,6 +591,15 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin-left: 20px;
+}
+
+.timeline-item:hover .timeline-content {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(23, 162, 184, 0.3);
+    transform: translateY(-4px);
 }
 
 .timeline-content h3 {
@@ -611,6 +631,11 @@ body {
     padding: 5px 0;
     position: relative;
     padding-left: 20px;
+    display: none;
+}
+
+.responsibilities li:first-child {
+    display: block;
 }
 
 .responsibilities li:before {
@@ -621,19 +646,31 @@ body {
     font-weight: bold;
 }
 
+.timeline-item:hover .responsibilities li {
+    display: block;
+}
+
 @media (max-width: 768px) {
     .timeline::before {
-        left: 20px;
+        left: 0;
+    }
+
+    .timeline-item {
+        flex: 0 0 280px;
     }
 
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even) {
-        padding-left: 60px;
+        padding-left: 0;
         padding-right: 0;
     }
 
     .timeline-marker {
         left: 20px;
+    }
+
+    .timeline-content {
+        margin-left: 20px;
     }
 }
 
@@ -821,18 +858,21 @@ body {
     display: flex;
     gap: 20px;
     overflow-x: auto;
-    padding: 30px 0;
+    padding: 40px 0;
     scroll-behavior: smooth;
+    align-items: center;
+    scroll-padding: 20px;
 }
 
 .education-timeline::before {
     content: '';
     position: absolute;
-    top: 40px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 0;
     right: 0;
     height: 3px;
-    background: var(--secondary);
+    background: linear-gradient(90deg, var(--secondary), var(--accent), var(--secondary));
     z-index: 0;
 }
 
@@ -841,11 +881,12 @@ body {
     flex: 0 0 320px;
     margin-bottom: 0;
     z-index: 1;
+    cursor: pointer;
 }
 
 .edu-item:nth-child(odd) {
     padding-right: 0;
-    padding-top: 60px;
+    padding-top: 0;
 }
 
 .edu-item:nth-child(even) {
@@ -855,15 +896,22 @@ body {
 
 .edu-marker {
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     background: var(--secondary);
     border: 4px solid white;
     border-radius: 50%;
-    top: 25px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 20px;
-    transform: none;
     box-shadow: 0 0 0 3px var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.edu-item:hover .edu-marker {
+    width: 24px;
+    height: 24px;
+    box-shadow: 0 0 0 4px var(--secondary), 0 0 20px rgba(231, 76, 60, 0.6);
 }
 
 .edu-content {
@@ -871,6 +919,15 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    margin-left: 20px;
+}
+
+.edu-item:hover .edu-content {
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.3);
+    transform: translateY(-4px);
 }
 
 .edu-content h3 {
@@ -903,17 +960,25 @@ body {
 
 @media (max-width: 768px) {
     .education-timeline::before {
-        left: 20px;
+        left: 0;
+    }
+
+    .edu-item {
+        flex: 0 0 280px;
     }
 
     .edu-item:nth-child(odd),
     .edu-item:nth-child(even) {
-        padding-left: 60px;
+        padding-left: 0;
         padding-right: 0;
     }
 
     .edu-marker {
         left: 20px;
+    }
+
+    .edu-content {
+        margin-left: 20px;
     }
 }
 
@@ -1006,29 +1071,30 @@ body {
 }
 
 .timeline-modal.show {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.75);
     opacity: 1;
     pointer-events: auto;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(8px);
 }
 
 .modal-content {
-    background: white;
-    border-radius: 12px;
-    padding: 40px;
-    max-width: 600px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, white 100%);
+    border-radius: 16px;
+    padding: 45px;
+    max-width: 700px;
     width: 90%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
     position: relative;
-    animation: modalSlideIn 0.3s ease;
+    animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(23, 162, 184, 0.2);
 }
 
 @keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: scale(0.95) translateY(-20px);
+        transform: scale(0.85) translateY(-40px);
     }
     to {
         opacity: 1;
@@ -1038,26 +1104,27 @@ body {
 
 .modal-close {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--bg-light);
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--accent), #0f8fa3);
     border: none;
-    font-size: 28px;
+    font-size: 32px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: var(--text-dark);
+    color: white;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(23, 162, 184, 0.3);
 }
 
 .modal-close:hover {
-    background: var(--accent);
-    color: white;
-    transform: rotate(90deg);
+    background: linear-gradient(135deg, #138496, var(--accent));
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 8px 20px rgba(23, 162, 184, 0.5);
 }
 
 .modal-expanded-content {
@@ -1065,14 +1132,19 @@ body {
 }
 
 .modal-expanded-content h3 {
-    font-size: 1.5rem !important;
-    margin-bottom: 12px !important;
+    font-size: 1.8rem !important;
+    margin-bottom: 15px !important;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .modal-expanded-content h4 {
-    font-size: 1.1rem !important;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important;
+    font-size: 1.2rem !important;
+    margin-top: 25px !important;
+    margin-bottom: 12px !important;
+    color: var(--secondary);
 }
 
 .modal-expanded-content .timeline-content,
@@ -1085,24 +1157,57 @@ body {
 
 .modal-expanded-content .institution,
 .modal-expanded-content .edu-institution {
-    font-size: 1.05rem !important;
-    margin-bottom: 10px !important;
+    font-size: 1.1rem !important;
+    margin-bottom: 12px !important;
+    color: var(--secondary);
+    font-weight: 700;
 }
 
 .modal-expanded-content .period,
 .modal-expanded-content .edu-date {
     font-size: 1rem !important;
-    margin-bottom: 15px !important;
+    margin-bottom: 18px !important;
+    color: var(--text-muted);
+    font-style: italic;
 }
 
 .modal-expanded-content ul {
-    margin-left: 20px;
-    line-height: 1.8;
+    margin-left: 25px;
+    line-height: 2;
 }
 
 .modal-expanded-content li {
-    margin-bottom: 10px;
-    font-size: 1rem;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    position: relative;
+}
+
+.modal-expanded-content li:before {
+    content: "→";
+    position: absolute;
+    left: -25px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Scrollbar styling in modal */
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--accent), var(--secondary));
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--secondary), var(--accent));
 }
 
 /* Clickable timeline indicator */
@@ -1111,24 +1216,28 @@ body {
     transition: all 0.3s ease;
 }
 
-.timeline-item:hover,
-.edu-item:hover {
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-}
-
 /* Responsive modal */
 @media (max-width: 768px) {
     .modal-content {
-        padding: 30px 20px;
+        padding: 35px 20px;
         max-width: 95%;
         margin: 20px;
+        border-radius: 12px;
     }
 
     .modal-expanded-content h3 {
-        font-size: 1.3rem !important;
+        font-size: 1.5rem !important;
     }
 
     .modal-expanded-content h4 {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
+    }
+
+    .modal-close {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+        top: 15px;
+        right: 15px;
     }
 }
