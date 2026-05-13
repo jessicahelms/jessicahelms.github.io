@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSkillBars();
 });
 
-// Hero canvas background animation
+// Hero canvas background animation - Neural network + DNA helix
 function initHeroCanvas() {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
@@ -45,19 +45,21 @@ function initHeroCanvas() {
     window.addEventListener('resize', resizeCanvas);
 
     let animationFrameId;
+    let time = 0;
 
-    // Particle system for hero background
-    const particles = [];
-    const particleCount = 50;
+    // Neural network particles
+    const neurons = [];
+    const neuronCount = 80;
 
-    class Particle {
+    class Neuron {
         constructor() {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.vx = (Math.random() - 0.5) * 0.5;
-            this.vy = (Math.random() - 0.5) * 0.5;
-            this.radius = Math.random() * 2 + 1;
-            this.opacity = Math.random() * 0.5 + 0.3;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.radius = Math.random() * 3 + 2;
+            this.opacity = Math.random() * 0.6 + 0.3;
+            this.originalOpacity = this.opacity;
         }
 
         update() {
@@ -66,6 +68,9 @@ function initHeroCanvas() {
 
             if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
             if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+            // Pulse effect
+            this.opacity = this.originalOpacity + Math.sin(time * 0.01 + this.x) * 0.2;
         }
 
         draw() {
@@ -73,44 +78,121 @@ function initHeroCanvas() {
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             ctx.fill();
+
+            // Glow effect
+            ctx.strokeStyle = `rgba(23, 162, 184, ${this.opacity * 0.3})`;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius + 3, 0, Math.PI * 2);
+            ctx.stroke();
         }
     }
 
-    // Initialize particles
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
+    // Initialize neurons
+    for (let i = 0; i < neuronCount; i++) {
+        neurons.push(new Neuron());
     }
 
-    // Draw connecting lines
-    const drawConnections = () => {
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
+    // Draw neural connections
+    const drawNeuralConnections = () => {
+        for (let i = 0; i < neurons.length; i++) {
+            for (let j = i + 1; j < neurons.length; j++) {
+                const dx = neurons[i].x - neurons[j].x;
+                const dy = neurons[i].y - neurons[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
-                if (distance < 150) {
-                    ctx.strokeStyle = `rgba(23, 162, 184, ${0.1 * (1 - distance / 150)})`;
-                    ctx.lineWidth = 1;
+                if (distance < 200) {
+                    const opacity = (1 - distance / 200) * 0.15;
+                    ctx.strokeStyle = `rgba(23, 162, 184, ${opacity})`;
+                    ctx.lineWidth = 1.5;
                     ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.moveTo(neurons[i].x, neurons[i].y);
+                    ctx.lineTo(neurons[j].x, neurons[j].y);
                     ctx.stroke();
                 }
             }
         }
     };
 
+    // Draw DNA helix
+    const drawDNAHelix = () => {
+        const helixX = canvas.width * 0.85;
+        const helixStart = -100 + time * 2;
+        const helixEnd = canvas.height + 200;
+        const radius = 30;
+
+        ctx.strokeStyle = 'rgba(231, 76, 60, 0.4)';
+        ctx.lineWidth = 2;
+
+        for (let y = helixStart; y < helixEnd; y += 5) {
+            const x1 = helixX + Math.sin((y + time) * 0.05) * radius;
+            const x2 = helixX + Math.cos((y + time) * 0.05) * radius;
+
+            ctx.beginPath();
+            ctx.moveTo(x1, y);
+            ctx.lineTo(helixX, y);
+            ctx.stroke();
+
+            ctx.strokeStyle = `rgba(231, 76, 60, ${0.4 + Math.sin((y + time) * 0.05) * 0.2})`;
+        }
+
+        // DNA base pairs
+        for (let y = helixStart; y < helixEnd; y += 20) {
+            const x1 = helixX + Math.sin((y + time) * 0.05) * radius;
+            const x2 = helixX + Math.cos((y + time) * 0.05) * radius;
+
+            ctx.strokeStyle = 'rgba(231, 76, 60, 0.6)';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(x1, y);
+            ctx.lineTo(x2, y);
+            ctx.stroke();
+        }
+    };
+
+    // Draw data visualization points
+    const drawDataPoints = () => {
+        for (let i = 0; i < 15; i++) {
+            const x = (canvas.width * 0.2 + Math.sin(time * 0.003 + i) * 60) + i * 40;
+            const y = (canvas.height * 0.3 + Math.cos(time * 0.003 + i * 1.5) * 80);
+            const size = Math.sin(time * 0.005 + i) * 3 + 5;
+
+            ctx.fillStyle = `rgba(26, 58, 82, ${0.3 + Math.sin(time * 0.004 + i) * 0.2})`;
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Connect to neighbors
+            if (i < 14) {
+                const nextX = (canvas.width * 0.2 + Math.sin(time * 0.003 + i + 1) * 60) + (i + 1) * 40;
+                const nextY = (canvas.height * 0.3 + Math.cos(time * 0.003 + (i + 1) * 1.5) * 80);
+
+                ctx.strokeStyle = `rgba(26, 58, 82, 0.1)`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(x, y);
+                ctx.lineTo(nextX, nextY);
+                ctx.stroke();
+            }
+        }
+    };
+
     const animate = () => {
-        ctx.fillStyle = 'rgba(26, 58, 82, 0)';
+        // Dark background with slight fade
+        ctx.fillStyle = 'rgba(15, 30, 46, 0.1)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
+        time++;
+
+        drawDataPoints();
+        drawDNAHelix();
+
+        neurons.forEach(neuron => {
+            neuron.update();
+            neuron.draw();
         });
 
-        drawConnections();
+        drawNeuralConnections();
         animationFrameId = requestAnimationFrame(animate);
     };
 

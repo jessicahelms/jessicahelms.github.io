@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Timeline stagger animation
     initTimelineStagger();
+
+    // Timeline click-to-zoom
+    initTimelineZoom();
 });
 
 // Platform card hover effect
@@ -263,3 +266,87 @@ window.addEventListener('load', () => {
         }
     }
 });
+
+// Timeline zoom modal
+function initTimelineZoom() {
+    // Create modal HTML if it doesn't exist
+    if (!document.getElementById('timelineModal')) {
+        const modal = document.createElement('div');
+        modal.id = 'timelineModal';
+        modal.className = 'timeline-modal';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <button class="modal-close">&times;</button>
+                <div class="modal-body"></div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    const modal = document.getElementById('timelineModal');
+    const closeBtn = modal.querySelector('.modal-close');
+
+    // Add click handlers to timeline items
+    const timelineItems = document.querySelectorAll('.timeline-item, .edu-item');
+
+    timelineItems.forEach(item => {
+        item.style.cursor = 'pointer';
+        item.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            // Get the content
+            const content = item.innerHTML;
+            const modalBody = modal.querySelector('.modal-body');
+
+            // Create expanded view
+            const expanded = document.createElement('div');
+            expanded.innerHTML = content;
+            expanded.className = 'modal-expanded-content';
+
+            modalBody.innerHTML = '';
+            modalBody.appendChild(expanded);
+
+            // Show modal with animation
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Hover effect to show it's clickable
+        item.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+            const marker = this.querySelector('.timeline-marker, .edu-marker');
+            if (marker) {
+                marker.style.boxShadow = '0 0 0 6px currentColor, 0 0 12px rgba(23, 162, 184, 0.5)';
+            }
+        });
+
+        item.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            const marker = this.querySelector('.timeline-marker, .edu-marker');
+            if (marker) {
+                marker.style.boxShadow = '';
+            }
+        });
+    });
+
+    // Close modal handlers
+    closeBtn.addEventListener('click', () => {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Keyboard close
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+    });
+}
