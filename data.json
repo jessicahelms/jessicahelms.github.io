@@ -1,0 +1,198 @@
+{
+  "personal": {
+    "name": "Jessica Helms",
+    "email": "jessicamhelms7@gmail.com",
+    "phone": "217-722-1459",
+    "linkedin": "https://www.linkedin.com/in/jessica-helms-16b3801b2",
+    "researchFocus": "Bioinformaticist specializing in spatial transcriptomics and multimodal integration of high-dimensional tissue data. Research interests center on the molecular and structural remodeling of the human peripheral nervous system in pain pathology, integrating computational, cellular, and imaging approaches."
+  },
+  "education": [
+    {
+      "institution": "Saint Louis University",
+      "location": "St. Louis, MO",
+      "degree": "Master of Science in Bioinformatics and Computational Biology",
+      "status": "Expected May 2025",
+      "highlight": "Accelerated B.A.–M.S. Program"
+    },
+    {
+      "institution": "Saint Louis University",
+      "location": "St. Louis, MO",
+      "degree": "Bachelor of Arts in Biology",
+      "status": "December 2024",
+      "highlight": "Accelerated B.A.–M.S. Program"
+    },
+    {
+      "institution": "Saint Louis University – Madrid",
+      "location": "Madrid, Spain",
+      "degree": "Study Abroad",
+      "status": "January – May 2023"
+    }
+  ],
+  "research": [
+    {
+      "title": "Research Technician",
+      "institution": "Washington University in St. Louis – McDonnell Genome Institute, FIVE Lab",
+      "period": "Jan 2025 – Present",
+      "responsibilities": [
+        "Culture and differentiate iPSC-derived neurons and glial lines for peripheral nerve modeling",
+        "Integrate spatial transcriptomic (Visium HD, Xenium) and proteomic (Akoya CODEX) datasets",
+        "Develop Python pipelines for transcript-to-polygon mapping, coordinate alignment, and ROI-based quantification",
+        "Apply SAHI and YOLOv12 for segmentation and immune marker detection",
+        "Collaborate to construct a spatial-omics atlas for human neuromas"
+      ],
+      "focus": "spatial-transcriptomics"
+    },
+    {
+      "title": "Undergraduate Research Assistant",
+      "institution": "Institute for Drug and Biotherapeutic Innovation – Saint Louis University",
+      "period": "Sep 2024 – Dec 2024",
+      "responsibilities": [
+        "Built bioinformatics pipelines for FSHD muscular dystrophy datasets",
+        "Conducted DNA isolation, PCR, and molecular assays for experimental validation"
+      ],
+      "focus": "computational-biology"
+    },
+    {
+      "title": "Independent Study Author",
+      "institution": "Saint Louis University",
+      "period": "Jan 2024 – May 2024",
+      "responsibilities": [
+        "Wrote paper: 'The Dread of Discovery: Why Are We So Scared of Scientific Innovation?' on public trust in science"
+      ],
+      "focus": "science-policy"
+    }
+  ],
+  "publications": [
+    {
+      "title": "High-resolution, multi-modal human peripheral nerve atlas reveals molecular and structural reorganization in painful neuroma",
+      "authors": "Yim AKY, Yuan L, Strickland A, Gordon I, Helms J, Dong W, Gerbi EB, Jin P, Buchser WJ, Chamessian A, Copits B, Gereau R, Milbrandt J, & the NIH PRECISION Human Pain Network",
+      "status": "Ongoing manuscript, Washington University in St. Louis, 2025",
+      "note": "First author (Jessica Helms) on significant multi-institutional collaborative work",
+      "institutions": ["Washington University School of Medicine", "NIH PRECISION Human Pain Network"],
+      "keywords": ["spatial transcriptomics", "peripheral nerve", "pain pathology", "multimodal integration"]
+    }
+  ],
+  "presentations": [
+    {
+      "title": "Neuromorphic structures and energy-efficient architectures for bioinspired computation",
+      "event": "SWARM Monthly Seminar",
+      "venue": "McDonnell Genome Institute, Washington University in St. Louis",
+      "date": "2025"
+    },
+    {
+      "title": "Plant Ecology Concepts and Experimental Design",
+      "event": "Guest Lecture",
+      "venue": "Department of Biology, Saint Louis University",
+      "date": "2024"
+    },
+    {
+      "title": "Shedding Light on Fall Tree Phenology: Artificial Light at Night (ALAN) Impacts the Timing of Leaf Color Change in Acer rubrum on Saint Louis University's Campus",
+      "event": "Midwest Ecology and Evolution Conference",
+      "venue": "St. Louis, MO",
+      "date": "2024",
+      "type": "Poster"
+    }
+  ],
+  "skills": {
+    "laboratory": [
+      "iPSC Differentiation",
+      "Neuron and Glia Culture",
+      "PCR",
+      "DNA Isolation",
+      "Fluorescence Microscopy",
+      "Immunostaining",
+      "Statistical Analysis"
+    ],
+    "programming": [
+      {
+        "name": "Python",
+        "proficiency": 95,
+        "color": "#3776AB"
+      },
+      {
+        "name": "R",
+        "proficiency": 85,
+        "color": "#276DC3"
+      },
+      {
+        "name": "C++",
+        "proficiency": 70,
+        "color": "#00599C"
+      },
+      {
+        "name": "Bash/Linux",
+        "proficiency": 80,
+        "color": "#000000"
+      },
+      {
+        "name": "Git",
+        "proficiency": 85,
+        "color": "#F1502F"
+      },
+      {
+        "name": "JavaScript/HTML",
+        "proficiency": 60,
+        "color": "#F7DF1E"
+      }
+    ],
+    "platforms": [
+      "10x Visium HD",
+      "Xenium",
+      "Akoya CODEX/Phenocycler",
+      "Seurat",
+      "SpatialDE",
+      "Cell Ranger",
+      "Zarr"
+    ],
+    "tools": [
+      {
+        "name": "PyTorch",
+        "category": "ML"
+      },
+      {
+        "name": "scikit-learn",
+        "category": "ML"
+      },
+      {
+        "name": "YOLO v12",
+        "category": "Computer Vision"
+      },
+      {
+        "name": "SAHI",
+        "category": "Computer Vision"
+      },
+      {
+        "name": "DeepMIB",
+        "category": "Segmentation"
+      },
+      {
+        "name": "Dragonfly",
+        "category": "Image Analysis"
+      },
+      {
+        "name": "SimpleITK",
+        "category": "Image Processing"
+      },
+      {
+        "name": "STalign",
+        "category": "Spatial Analysis"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "Spatial Transcriptomics Data Visualizer",
+      "description": "Interactive web tool for exploring and visualizing multimodal spatial transcriptomics data",
+      "technologies": ["Python", "JavaScript", "Visualization"],
+      "link": "[Add your data visualizer link]",
+      "github": "[Add GitHub repo if applicable]"
+    },
+    {
+      "title": "Brain Segmentation Model Interface",
+      "description": "Web interface for running AI-powered segmentation models on brain imaging data",
+      "technologies": ["Deep Learning", "Web Interface", "Image Analysis"],
+      "link": "[Add brain segmentation tool link]",
+      "github": "[Add GitHub repo if applicable]"
+    }
+  ]
+}
