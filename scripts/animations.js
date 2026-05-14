@@ -286,42 +286,49 @@ function initTimelineZoom() {
     const modal = document.getElementById('timelineModal');
     const closeBtn = modal.querySelector('.modal-close');
 
-    // Add click handlers to timeline items
+    // Add zoom handlers to explicit controls, while cards expand on hover.
     const timelineItems = document.querySelectorAll('.timeline-item, .edu-item');
 
     timelineItems.forEach(item => {
-        item.style.cursor = 'pointer';
-        item.addEventListener('click', (e) => {
-            e.stopPropagation();
+        const zoomButton = item.querySelector('.timeline-zoom');
 
-            // Get the content
-            const content = item.innerHTML;
-            const modalBody = modal.querySelector('.modal-body');
+        if (zoomButton) {
+            zoomButton.addEventListener('click', (e) => {
+                e.stopPropagation();
 
-            // Create expanded view
-            const expanded = document.createElement('div');
-            expanded.innerHTML = content;
-            expanded.className = 'modal-expanded-content';
+                // Get the content
+                const content = item.querySelector('.timeline-content, .edu-content');
+                const modalBody = modal.querySelector('.modal-body');
 
-            modalBody.innerHTML = '';
-            modalBody.appendChild(expanded);
+                // Create expanded view
+                const expanded = document.createElement('div');
+                expanded.innerHTML = content ? content.innerHTML : item.innerHTML;
+                expanded.className = 'modal-expanded-content';
+                const modalZoomButton = expanded.querySelector('.timeline-zoom');
+                if (modalZoomButton) {
+                    modalZoomButton.remove();
+                }
 
-            // Show modal with animation
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        });
+                modalBody.innerHTML = '';
+                modalBody.appendChild(expanded);
+
+                // Show modal with animation
+                modal.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+        }
 
         // Hover effect to show it's clickable
         item.addEventListener('mouseenter', function() {
-            this.style.transform = 'scale(1.02)';
             const marker = this.querySelector('.timeline-marker, .edu-marker');
             if (marker) {
-                marker.style.boxShadow = '0 0 0 6px currentColor, 0 0 12px rgba(23, 162, 184, 0.5)';
+                marker.style.boxShadow = this.classList.contains('timeline-item-education')
+                    ? '0 0 0 6px var(--secondary), 0 0 18px rgba(231, 76, 60, 0.45)'
+                    : '0 0 0 6px var(--accent), 0 0 18px rgba(23, 162, 184, 0.45)';
             }
         });
 
         item.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale(1)';
             const marker = this.querySelector('.timeline-marker, .edu-marker');
             if (marker) {
                 marker.style.boxShadow = '';

@@ -28,7 +28,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize skill bars animation
     initSkillBars();
+
+    // Restart handwritten signature animation on load
+    initSignatureVideo();
 });
+
+function initSignatureVideo() {
+    const signatureVideo = document.querySelector('.signature-video');
+    if (!signatureVideo) return;
+
+    signatureVideo.currentTime = 0;
+    const playPromise = signatureVideo.play();
+    if (playPromise) {
+        playPromise.catch(() => {
+            signatureVideo.controls = false;
+        });
+    }
+}
 
 // Hero canvas background animation - Neural network + DNA helix + datasets
 function initHeroCanvas() {

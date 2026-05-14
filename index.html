@@ -12,7 +12,12 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">Jessica Helms</div>
+            <a href="#top" class="nav-brand signature-brand" aria-label="Jessica Helms home">
+                <span class="signature-fallback">Jessica Helms</span>
+                <video class="signature-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+                    <source src="assets/signature-name.mp4" type="video/mp4">
+                </video>
+            </a>
             <ul class="nav-links">
                 <li><a href="#research-focus">Research</a></li>
                 <li><a href="#featured-project">Featured Work</a></li>
@@ -25,7 +30,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="top" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Jessica Helms</h1>
             <p class="hero-subtitle">Bioinformaticist • Spatial Transcriptomics • Multimodal Data Integration</p>
@@ -227,14 +232,15 @@
         </div>
     </section>
 
-    <!-- Experience Timeline -->
+    <!-- Combined Timeline -->
     <section id="experience" class="experience-timeline">
         <div class="container">
-            <h2>Research Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
+            <h2>Research & Education Timeline</h2>
+            <div class="timeline timeline-combined" aria-label="Research and education timeline">
+                <div class="timeline-item timeline-item-work">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <span class="timeline-type">Research</span>
                         <h3>Research Technician</h3>
                         <p class="institution">Washington University in St. Louis – McDonnell Genome Institute, FIVE Lab</p>
                         <p class="period">Jan 2025 – Present</p>
@@ -244,12 +250,37 @@
                             <li>Develop Python pipelines for transcript-to-polygon mapping and ROI-based quantification</li>
                             <li>Apply SAHI and YOLOv12 for segmentation and immune marker detection</li>
                         </ul>
+                        <button class="timeline-zoom" type="button" aria-label="Zoom into Research Technician">Zoom in</button>
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item timeline-item-education">
                     <div class="timeline-marker"></div>
                     <div class="timeline-content">
+                        <span class="timeline-type">Education</span>
+                        <h3>Master of Science in Bioinformatics and Computational Biology</h3>
+                        <p class="institution">Saint Louis University, St. Louis, MO</p>
+                        <p class="period">Expected May 2025</p>
+                        <p class="edu-highlight">Accelerated B.A.-M.S. Program</p>
+                        <button class="timeline-zoom" type="button" aria-label="Zoom into Master of Science">Zoom in</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-item-education">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-type">Education</span>
+                        <h3>Bachelor of Arts in Biology</h3>
+                        <p class="institution">Saint Louis University, St. Louis, MO</p>
+                        <p class="period">December 2024</p>
+                        <button class="timeline-zoom" type="button" aria-label="Zoom into Bachelor of Arts">Zoom in</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-item-work">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-type">Research</span>
                         <h3>Undergraduate Research Assistant</h3>
                         <p class="institution">Institute for Drug and Biotherapeutic Innovation – Saint Louis University</p>
                         <p class="period">Sep 2024 – Dec 2024</p>
@@ -257,6 +288,18 @@
                             <li>Built bioinformatics pipelines for FSHD muscular dystrophy datasets</li>
                             <li>Conducted DNA isolation, PCR, and molecular assays</li>
                         </ul>
+                        <button class="timeline-zoom" type="button" aria-label="Zoom into Undergraduate Research Assistant">Zoom in</button>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-item-education">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-type">Education</span>
+                        <h3>Study Abroad</h3>
+                        <p class="institution">Saint Louis University - Madrid, Spain</p>
+                        <p class="period">January - May 2023</p>
+                        <button class="timeline-zoom" type="button" aria-label="Zoom into Study Abroad">Zoom in</button>
                     </div>
                 </div>
             </div>
