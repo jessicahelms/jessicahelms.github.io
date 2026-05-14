@@ -3,443 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jessica Helms – Bioinformatician | Spatial Transcriptomics</title>
-    <meta name="description" content="Portfolio of Jessica Helms, bioinformaticist specializing in spatial transcriptomics and multimodal data integration for PhD research.">
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Jessica Helms | Spatial Bioinformatics</title>
+    <meta name="description" content="Portfolio of Jessica Helms, a bioinformaticist working in spatial transcriptomics, multimodal tissue data, and computational biology.">
+    <link rel="stylesheet" href="styles/main.css?v=6">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#top" class="nav-brand signature-brand" aria-label="Jessica Helms home">
-                <span class="signature-fallback">Jessica Helms</span>
-                <video class="signature-video" autoplay muted playsinline preload="auto" aria-hidden="true">
-                    <source src="assets/signature-name.mp4" type="video/mp4">
-                </video>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#research-focus">Research</a></li>
-                <li><a href="#featured-project">Featured Work</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#top" class="signature-brand" aria-label="Jessica Helms home">
+            <span class="signature-fallback">Jessica Helms</span>
+            <video class="signature-video" autoplay muted playsinline preload="auto" aria-hidden="true">
+                <source src="assets/signature-name.mp4?v=6" type="video/mp4">
+            </video>
+        </a>
+        <div class="nav-links">
+            <a href="#work">Work</a>
+            <a href="#atlas">Atlas</a>
+            <a href="#methods">Methods</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="top" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Jessica Helms</h1>
-            <p class="hero-subtitle">Bioinformaticist • Spatial Transcriptomics • Multimodal Data Integration</p>
-            <p class="hero-description">Exploring the molecular and structural reorganization of the human peripheral nervous system through high-dimensional computational biology.</p>
-            <div class="hero-cta">
-                <a href="#featured-project" class="btn btn-primary">View Featured Research</a>
-                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
-            </div>
+    <aside class="jump-nav" aria-label="Jump to section navigation">
+        <button class="jump-toggle" type="button" aria-expanded="true" aria-label="Collapse jump navigation">
+            <span>Jump to</span>
+        </button>
+        <div class="jump-panel">
+            <div class="jump-helix" aria-hidden="true"></div>
+            <a class="jump-link" href="#top"><span>Intro</span></a>
+            <a class="jump-link" href="#work"><span>Work</span></a>
+            <a class="jump-link" href="#atlas"><span>Atlas</span></a>
+            <a class="jump-link" href="#methods"><span>Methods</span></a>
+            <a class="jump-link" href="#timeline"><span>Timeline</span></a>
+            <a class="jump-link" href="#contact"><span>Contact</span></a>
         </div>
-        <div class="hero-bg">
-            <canvas id="heroCanvas"></canvas>
-        </div>
-    </section>
+    </aside>
 
-    <!-- Research Focus Overview -->
-    <section id="research-focus" class="research-focus">
-        <div class="container">
-            <h2>Research Focus</h2>
-            <p class="focus-statement">I specialize in spatial transcriptomics and multimodal integration of high-dimensional tissue data. My work centers on aligning and quantifying transcriptomic and proteomic signals across histological structures using AI-driven segmentation and image analysis. I'm particularly interested in understanding how the peripheral nervous system remodels in pain pathology.</p>
-
-            <div class="research-tags">
-                <span class="tag tag-primary">Spatial Transcriptomics</span>
-                <span class="tag tag-secondary">Multimodal Integration</span>
-                <span class="tag tag-accent">Neural Imaging</span>
-                <span class="tag tag-primary">Computational Biology</span>
-                <span class="tag tag-accent">AI-Driven Segmentation</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Research Project -->
-    <section id="featured-project" class="featured-project">
-        <div class="container">
-            <h2>Featured Research</h2>
-            <div class="project-card">
-                <div class="project-header">
-                    <h3>High-Resolution, Multi-Modal Human Peripheral Nerve Atlas</h3>
-                    <p class="project-status">Manuscript in preparation (2025)</p>
+    <main>
+        <section id="top" class="panel hero-panel">
+            <canvas id="heroCanvas" aria-hidden="true"></canvas>
+            <div class="panel-inner hero-inner">
+                <p class="eyebrow">spatial bioinformatics / computational biology</p>
+                <h1>Mapping tissue architecture into usable biological signal.</h1>
+                <p class="lede">
+                    I work at the edge of wet lab biology, image analysis, and multi-omic computation,
+                    with a focus on peripheral nerve remodeling and spatial transcriptomics.
+                </p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#atlas">Featured work</a>
+                    <a class="button ghost" href="#methods">Methods</a>
                 </div>
+            </div>
+        </section>
 
-                <div class="project-content">
-                    <p class="project-description">
-                        A collaborative effort revealing molecular and structural reorganization in painful neuroma through integration of spatial transcriptomics and proteomics data.
+        <section id="work" class="panel split-panel">
+            <div class="panel-inner split-layout">
+                <div>
+                    <p class="eyebrow">research focus</p>
+                    <h2>Computational systems for spatial tissue data.</h2>
+                </div>
+                <div class="quiet-copy">
+                    <p>
+                        My work centers on aligning transcriptomic and proteomic measurements to histological
+                        structure, then turning those measurements into interpretable tissue-level readouts.
                     </p>
+                    <div class="pill-row">
+                        <span>Spatial transcriptomics</span>
+                        <span>Multimodal integration</span>
+                        <span>Neural imaging</span>
+                        <span>AI segmentation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="project-details">
-                        <div class="detail-block">
-                            <h4>Data Integration Pipeline</h4>
-                            <div class="platform-grid">
-                                <div class="platform-card">
-                                    <span class="platform-icon">🧬</span>
-                                    <strong>Transcriptomics</strong>
-                                    <p>Visium HD, Xenium</p>
-                                </div>
-                                <div class="platform-card">
-                                    <span class="platform-icon">🔬</span>
-                                    <strong>Proteomics</strong>
-                                    <p>Akoya CODEX</p>
-                                </div>
-                                <div class="platform-card">
-                                    <span class="platform-icon">⚙️</span>
-                                    <strong>Analysis</strong>
-                                    <p>Python pipelines, YOLO segmentation</p>
-                                </div>
-                                <div class="platform-card">
-                                    <span class="platform-icon">🏥</span>
-                                    <strong>Collaboration</strong>
-                                    <p>Washington U, NIH PRECISION Network</p>
-                                </div>
-                            </div>
+        <section id="atlas" class="panel atlas-panel">
+            <div class="panel-inner">
+                <p class="eyebrow">featured project</p>
+                <div class="feature-card">
+                    <div>
+                        <h2>High-resolution, multi-modal human peripheral nerve atlas</h2>
+                        <p class="project-status">Manuscript in preparation, 2025</p>
+                    </div>
+                    <p>
+                        A collaborative atlas integrating spatial transcriptomics and proteomics to study
+                        molecular and structural reorganization in painful neuroma.
+                    </p>
+                    <div class="mini-grid">
+                        <div>
+                            <span class="mini-label">Transcriptomics</span>
+                            <strong>Visium HD + Xenium</strong>
                         </div>
-
-                        <div class="detail-block">
-                            <h4>Co-authors & Institutions</h4>
-                            <p class="authors-list">
-                                Yim AKY¹², Yuan L¹, Strickland A¹, Gordon I³, <strong>Helms J¹</strong>, Dong W¹, Gerbi EB¹, Jin P¹,
-                                Buchser WJ¹², Chamessian A³, Copits B³, Gereau R³, Milbrandt J¹²
-                            </p>
-                            <p class="institution-note">
-                                ¹ Department of Genetics, Washington University School of Medicine
-                                <br>² McDonnell Genome Institute
-                                <br>³ Department of Anesthesiology, Washington University Pain Center
-                            </p>
+                        <div>
+                            <span class="mini-label">Proteomics</span>
+                            <strong>Akoya CODEX</strong>
+                        </div>
+                        <div>
+                            <span class="mini-label">Analysis</span>
+                            <strong>Python, SAHI, YOLO</strong>
+                        </div>
+                        <div>
+                            <span class="mini-label">Context</span>
+                            <strong>Peripheral nerve pain biology</strong>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technical Skills Dashboard -->
-    <section id="skills" class="skills-dashboard">
-        <div class="container">
-            <h2>Technical Skills & Tools</h2>
-
-            <!-- Programming Languages -->
-            <div class="skills-section">
-                <h3>Programming Languages</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 95%; background: #3776AB;"></div>
-                        </div>
-                        <span class="skill-label">Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 85%; background: #276DC3;"></div>
-                        </div>
-                        <span class="skill-label">R</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 80%; background: #000000;"></div>
-                        </div>
-                        <span class="skill-label">Bash/Linux</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 85%; background: #F1502F;"></div>
-                        </div>
-                        <span class="skill-label">Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 70%; background: #00599C;"></div>
-                        </div>
-                        <span class="skill-label">C++</span>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-bar">
-                            <div class="skill-fill" style="width: 60%; background: #F7DF1E;"></div>
-                        </div>
-                        <span class="skill-label">JavaScript/HTML</span>
-                    </div>
+        <section id="methods" class="panel methods-panel">
+            <div class="panel-inner">
+                <p class="eyebrow">toolkit</p>
+                <h2>Small, sharp stack. Built for tissue-scale questions.</h2>
+                <div class="method-grid">
+                    <article>
+                        <h3>Code</h3>
+                        <p>Python, R, Bash/Linux, Git, JavaScript, C++</p>
+                    </article>
+                    <article>
+                        <h3>Spatial platforms</h3>
+                        <p>Visium HD, Xenium, Akoya CODEX, Seurat, SpatialDE, Cell Ranger</p>
+                    </article>
+                    <article>
+                        <h3>Image analysis</h3>
+                        <p>YOLO, SAHI, SimpleITK, scikit-image, STalign, ImageJ/Fiji</p>
+                    </article>
+                    <article>
+                        <h3>Bench context</h3>
+                        <p>iPSC differentiation, neuron and glia culture, PCR, DNA isolation, immunostaining</p>
+                    </article>
                 </div>
             </div>
+        </section>
 
-            <!-- Lab Techniques -->
-            <div class="skills-section">
-                <h3>Laboratory Techniques</h3>
-                <div class="techniques-list">
-                    <div class="technique-badge">iPSC Differentiation</div>
-                    <div class="technique-badge">Neuron & Glia Culture</div>
-                    <div class="technique-badge">PCR</div>
-                    <div class="technique-badge">DNA Isolation</div>
-                    <div class="technique-badge">Fluorescence Microscopy</div>
-                    <div class="technique-badge">Immunostaining</div>
-                    <div class="technique-badge">Statistical Analysis</div>
-                </div>
-            </div>
-
-            <!-- Platforms & Tools -->
-            <div class="skills-section">
-                <h3>Spatial & Multi-Omic Platforms</h3>
-                <div class="platforms-grid">
-                    <div class="platform-chip">Visium HD</div>
-                    <div class="platform-chip">Xenium</div>
-                    <div class="platform-chip">Akoya CODEX</div>
-                    <div class="platform-chip">Seurat</div>
-                    <div class="platform-chip">SpatialDE</div>
-                    <div class="platform-chip">Cell Ranger</div>
-                </div>
-            </div>
-
-            <!-- ML & Computational Tools -->
-            <div class="skills-section">
-                <h3>ML & Computational Tools</h3>
-                <div class="tools-grid">
-                    <div class="tool-card">
-                        <h4>Computer Vision</h4>
-                        <ul>
-                            <li>YOLOv12</li>
-                            <li>SAHI</li>
-                            <li>DeepMIB</li>
-                            <li>Dragonfly</li>
-                        </ul>
-                    </div>
-                    <div class="tool-card">
-                        <h4>ML Frameworks</h4>
-                        <ul>
-                            <li>PyTorch</li>
-                            <li>scikit-learn</li>
-                            <li>Pandas</li>
-                            <li>NumPy</li>
-                        </ul>
-                    </div>
-                    <div class="tool-card">
-                        <h4>Image Processing</h4>
-                        <ul>
-                            <li>SimpleITK</li>
-                            <li>scikit-image</li>
-                            <li>STalign</li>
-                            <li>ImageJ/Fiji</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Combined Timeline -->
-    <section id="experience" class="experience-timeline">
-        <div class="container">
-            <h2>Research & Education Timeline</h2>
-            <div class="timeline timeline-combined" aria-label="Research and education timeline">
-                <div class="timeline-item timeline-item-work">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+        <section id="timeline" class="panel timeline-panel">
+            <div class="panel-inner">
+                <p class="eyebrow">path</p>
+                <h2>Research and education, condensed.</h2>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <button class="timeline-zoom" type="button">Zoom</button>
                         <span class="timeline-type">Research</span>
                         <h3>Research Technician</h3>
-                        <p class="institution">Washington University in St. Louis – McDonnell Genome Institute, FIVE Lab</p>
-                        <p class="period">Jan 2025 – Present</p>
-                        <ul class="responsibilities">
-                            <li>Culture and differentiate iPSC-derived neurons and glial lines</li>
-                            <li>Integrate spatial transcriptomic (Visium HD, Xenium) and proteomic (Akoya CODEX) datasets</li>
-                            <li>Develop Python pipelines for transcript-to-polygon mapping and ROI-based quantification</li>
-                            <li>Apply SAHI and YOLOv12 for segmentation and immune marker detection</li>
+                        <p class="institution">Washington University in St. Louis, McDonnell Genome Institute</p>
+                        <p class="period">Jan 2025 - Present</p>
+                        <ul>
+                            <li>iPSC-derived neuron and glial culture</li>
+                            <li>Spatial transcriptomic and proteomic integration</li>
+                            <li>Transcript-to-polygon mapping and ROI quantification</li>
                         </ul>
-                        <button class="timeline-zoom" type="button" aria-label="Zoom into Research Technician">Zoom in</button>
-                    </div>
-                </div>
-
-                <div class="timeline-item timeline-item-education">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                    </article>
+                    <article class="timeline-item">
+                        <button class="timeline-zoom" type="button">Zoom</button>
                         <span class="timeline-type">Education</span>
-                        <h3>Master of Science in Bioinformatics and Computational Biology</h3>
-                        <p class="institution">Saint Louis University, St. Louis, MO</p>
+                        <h3>M.S. Bioinformatics and Computational Biology</h3>
+                        <p class="institution">Saint Louis University</p>
                         <p class="period">Expected May 2025</p>
-                        <p class="edu-highlight">Accelerated B.A.-M.S. Program</p>
-                        <button class="timeline-zoom" type="button" aria-label="Zoom into Master of Science">Zoom in</button>
-                    </div>
-                </div>
-
-                <div class="timeline-item timeline-item-education">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-type">Education</span>
-                        <h3>Bachelor of Arts in Biology</h3>
-                        <p class="institution">Saint Louis University, St. Louis, MO</p>
-                        <p class="period">December 2024</p>
-                        <button class="timeline-zoom" type="button" aria-label="Zoom into Bachelor of Arts">Zoom in</button>
-                    </div>
-                </div>
-
-                <div class="timeline-item timeline-item-work">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
+                        <ul>
+                            <li>Accelerated B.A.-M.S. program</li>
+                            <li>Computational biology and data analysis focus</li>
+                        </ul>
+                    </article>
+                    <article class="timeline-item">
+                        <button class="timeline-zoom" type="button">Zoom</button>
                         <span class="timeline-type">Research</span>
                         <h3>Undergraduate Research Assistant</h3>
-                        <p class="institution">Institute for Drug and Biotherapeutic Innovation – Saint Louis University</p>
-                        <p class="period">Sep 2024 – Dec 2024</p>
-                        <ul class="responsibilities">
-                            <li>Built bioinformatics pipelines for FSHD muscular dystrophy datasets</li>
-                            <li>Conducted DNA isolation, PCR, and molecular assays</li>
+                        <p class="institution">Institute for Drug and Biotherapeutic Innovation</p>
+                        <p class="period">Sep 2024 - Dec 2024</p>
+                        <ul>
+                            <li>Bioinformatics pipelines for FSHD muscular dystrophy datasets</li>
+                            <li>DNA isolation, PCR, and molecular assays</li>
                         </ul>
-                        <button class="timeline-zoom" type="button" aria-label="Zoom into Undergraduate Research Assistant">Zoom in</button>
-                    </div>
-                </div>
-
-                <div class="timeline-item timeline-item-education">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-type">Education</span>
-                        <h3>Study Abroad</h3>
-                        <p class="institution">Saint Louis University - Madrid, Spain</p>
-                        <p class="period">January - May 2023</p>
-                        <button class="timeline-zoom" type="button" aria-label="Zoom into Study Abroad">Zoom in</button>
-                    </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Featured Projects & Webapps -->
-    <section id="projects" class="featured-webapps">
-        <div class="container">
-            <h2>Featured Projects & Webapps</h2>
-            <div class="projects-grid">
-                <div class="project-showcase">
-                    <div class="project-icon">📊</div>
-                    <h3>Spatial Transcriptomics Data Visualizer</h3>
-                    <p>Interactive web tool for exploring and visualizing multimodal spatial transcriptomics data with intuitive interfaces.</p>
-                    <div class="project-meta">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Visualization</span>
-                    </div>
-                    <a href="[Add your data visualizer link]" class="project-link" target="_blank">View Project →</a>
+        <section id="contact" class="panel contact-panel">
+            <div class="panel-inner contact-inner">
+                <p class="eyebrow">contact</p>
+                <h2>Open to research conversations, collaborations, and PhD program connections.</h2>
+                <div class="contact-links">
+                    <a href="mailto:jessicamhelms7@gmail.com">jessicamhelms7@gmail.com</a>
+                    <a href="tel:217-722-1459">217-722-1459</a>
+                    <a href="https://www.linkedin.com/in/jessica-helms-16b3801b2" target="_blank" rel="noreferrer">LinkedIn</a>
                 </div>
-
-                <div class="project-showcase">
-                    <div class="project-icon">🧠</div>
-                    <h3>Brain Segmentation Model Interface</h3>
-                    <p>Web interface for running AI-powered segmentation models on brain imaging data, enabling rapid analysis and iteration.</p>
-                    <div class="project-meta">
-                        <span class="tech-tag">Deep Learning</span>
-                        <span class="tech-tag">Web Interface</span>
-                        <span class="tech-tag">Image Analysis</span>
-                    </div>
-                    <a href="[Add brain segmentation tool link]" class="project-link" target="_blank">View Project →</a>
-                </div>
+                <p class="footer-note">Built with vanilla HTML, CSS, and JavaScript.</p>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Publications & Presentations -->
-    <section id="publications" class="publications-presentations">
-        <div class="container">
-            <h2>Publications & Presentations</h2>
-
-            <div class="publications-section">
-                <h3>Manuscripts</h3>
-                <div class="publication-card">
-                    <p class="publication-title">High-resolution, multi-modal human peripheral nerve atlas reveals molecular and structural reorganization in painful neuroma</p>
-                    <p class="publication-status">Manuscript in preparation, 2025</p>
-                </div>
-            </div>
-
-            <div class="presentations-section">
-                <h3>Presentations</h3>
-                <div class="presentation-cards">
-                    <div class="presentation-card">
-                        <h4>Neuromorphic structures and energy-efficient architectures for bioinspired computation</h4>
-                        <p class="venue">SWARM Monthly Seminar, McDonnell Genome Institute, Washington University in St. Louis</p>
-                        <p class="date">2025</p>
-                    </div>
-
-                    <div class="presentation-card">
-                        <h4>Work-in-Progress Research Talk</h4>
-                        <p class="venue">Research presentation</p>
-                        <p class="date">2025</p>
-                    </div>
-
-                    <div class="presentation-card">
-                        <h4>Shedding Light on Fall Tree Phenology: Artificial Light at Night (ALAN) Impacts the Timing of Leaf Color Change</h4>
-                        <p class="venue">Midwest Ecology and Evolution Conference, St. Louis, MO</p>
-                        <p class="date">2024</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2>Education</h2>
-            <div class="education-timeline">
-                <div class="edu-item">
-                    <div class="edu-marker"></div>
-                    <div class="edu-content">
-                        <h3>Master of Science in Bioinformatics and Computational Biology</h3>
-                        <p class="edu-institution">Saint Louis University, St. Louis, MO</p>
-                        <p class="edu-date">Expected May 2025</p>
-                        <p class="edu-highlight">Accelerated B.A.–M.S. Program</p>
-                    </div>
-                </div>
-
-                <div class="edu-item">
-                    <div class="edu-marker"></div>
-                    <div class="edu-content">
-                        <h3>Bachelor of Arts in Biology</h3>
-                        <p class="edu-institution">Saint Louis University, St. Louis, MO</p>
-                        <p class="edu-date">December 2024</p>
-                    </div>
-                </div>
-
-                <div class="edu-item">
-                    <div class="edu-marker"></div>
-                    <div class="edu-content">
-                        <h3>Study Abroad</h3>
-                        <p class="edu-institution">Saint Louis University – Madrid, Spain</p>
-                        <p class="edu-date">January – May 2023</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Footer -->
-    <section id="contact" class="contact-footer">
-        <div class="container">
-            <h2>Let's Connect</h2>
-            <p>Interested in discussing bioinformatics research, spatial transcriptomics, or PhD programs? I'd love to hear from you.</p>
-
-            <div class="contact-info">
-                <a href="mailto:jessicamhelms7@gmail.com" class="contact-link">
-                    <span class="contact-icon">✉️</span>
-                    jessicamhelms7@gmail.com
-                </a>
-                <a href="tel:217-722-1459" class="contact-link">
-                    <span class="contact-icon">📞</span>
-                    217-722-1459
-                </a>
-                <a href="https://www.linkedin.com/in/jessica-helms-16b3801b2" class="contact-link" target="_blank">
-                    <span class="contact-icon">🔗</span>
-                    LinkedIn
-                </a>
-            </div>
-
-            <footer class="footer">
-                <p>&copy; 2025 Jessica Helms. Portfolio built with vanilla HTML, CSS, and JavaScript.</p>
-            </footer>
-        </div>
-    </section>
-
-    <script src="scripts/main.js"></script>
-    <script src="scripts/animations.js"></script>
+    <script src="scripts/main.js?v=6"></script>
 </body>
 </html>
