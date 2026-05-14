@@ -29,9 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize skill bars animation
     initSkillBars();
 
-    // Restart handwritten signature animation on load
-    initSignatureVideo();
-
     // Initialize side DNA jump navigation
     initJumpNav();
 
@@ -39,24 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initTimelineZoom();
 });
 
-function initSignatureVideo() {
-    const signatureVideo = document.querySelector('.signature-video');
-    if (!signatureVideo) return;
-
-    signatureVideo.currentTime = 0;
-    const playPromise = signatureVideo.play();
-    if (playPromise) {
-        playPromise.catch(() => {
-            signatureVideo.controls = false;
-        });
-    }
-}
-
 function initJumpNav() {
     const jumpNav = document.querySelector('.jump-nav');
     const toggle = document.querySelector('.jump-toggle');
     const jumpLinks = document.querySelectorAll('.jump-link');
-    const navLinks = document.querySelectorAll('.nav-links a');
     const sections = Array.from(jumpLinks)
         .map(link => document.querySelector(link.getAttribute('href')))
         .filter(Boolean);
@@ -71,9 +54,6 @@ function initJumpNav() {
 
     const setActiveLink = (sectionId) => {
         jumpLinks.forEach(link => {
-            link.classList.toggle('is-active', link.getAttribute('href') === `#${sectionId}`);
-        });
-        navLinks.forEach(link => {
             link.classList.toggle('is-active', link.getAttribute('href') === `#${sectionId}`);
         });
     };
@@ -386,14 +366,3 @@ function initSkillBars() {
 
     skillBars.forEach(bar => skillObserver.observe(bar));
 }
-
-// Navbar background on scroll
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.site-nav');
-    if (!navbar) return;
-    if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(255, 250, 243, 0.96)';
-    } else {
-        navbar.style.background = 'rgba(255, 250, 243, 0.9)';
-    }
-});
